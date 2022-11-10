@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import requestsApi from "../helpers/requests";
+import { FaPlay } from "react-icons/fa";
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
@@ -36,15 +37,16 @@ const Main = () => {
         <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-start gap-4 md:gap-2 px-4 md:p-8">
           <h2 className="text-3xl md:text-5xl font-bold">{movie?.title}</h2>
 
-          <button className="bg-gradient-to-r from-gray-400 to-gray-200 text-black border-2 border-gray-500 rounded-md w-full py-2 sm:w-24 md:w-28 lg:w-32 mt-4">
-            Play
-          </button>
+          <div className="flex justify-center items-center gap-2 bg-gradient-to-r from-gray-400 to-gray-200 border-2 border-gray-500 rounded-md w-full py-2 sm:w-28 lg:w-32 mt-4 cursor-pointer">
+            <FaPlay className="text-black" />
+            <span className="text-black font-bold">Play</span>
+          </div>
 
-          <p className="text-gray-400 text-sm md:mt-2">
+          <p className="text-gray-400 text-sm mt-4 md:mt-2">
             Released: {movie?.release_date}
           </p>
 
-          <p className="w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200 tracking-wider">
+          <p className="w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-300 tracking-wider">
             {truncateString(movie?.overview, 150)}
           </p>
         </div>
