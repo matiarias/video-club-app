@@ -1,6 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 const NavBar = () => {
+  const { user, logOut } = UserAuth();
+  console.log(user);
+
+  const navigate = useNavigate();
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="w-full flex justify-between items-center px-6 py-4 z-[100] absolute top-0 left-0">
       <Link to="/">
@@ -8,16 +23,32 @@ const NavBar = () => {
           VideoClub
         </h1>
       </Link>
-      <div>
-        <Link to="/login">
-          <button className="text-white pr-4 mr-4">Login</button>
-        </Link>
-        <Link to="/signup">
-          <button className="bg-indigo-600 text-white px-6 py-2 rounded-md">
-            Sign Up
+
+      {user?.email ? (
+        <div>
+          <span className="text-gray-200 font-bold pr-4 mr-4">
+            {user?.email}
+          </span>
+
+          <button
+            onClick={handleLogOut}
+            className="bg-indigo-600 text-white px-6 py-2 rounded-md"
+          >
+            Log Out
           </button>
-        </Link>
-      </div>
+        </div>
+      ) : (
+        <div>
+          <Link to="/login">
+            <button className="text-white pr-4 mr-4">Login</button>
+          </Link>
+          <Link to="/signup">
+            <button className="bg-indigo-600 text-white px-6 py-2 rounded-md">
+              Sign Up
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
