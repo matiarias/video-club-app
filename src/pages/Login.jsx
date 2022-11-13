@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import netflixBg from "../assets/netflix-login-signup-bg.jpg";
 
 const Login = () => {
   return (
@@ -6,9 +7,7 @@ const Login = () => {
       <div className="relative h-full w-full">
         <img
           className="h-full w-full object-cover"
-          src={
-            "https://assets.nflxext.com/ffe/siteui/vlv3/0ef67cc5-0aa7-47cf-87bd-7f595afc7cfb/a25d952a-f1d3-46a3-acce-e0e4265c2830/AR-es-20221107-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-          }
+          src={netflixBg}
           alt="netflix-background-image"
         />
 
@@ -16,7 +15,7 @@ const Login = () => {
         <div className="absolute top-0 left-0 h-full w-full flex flex-col justify-center items-center px-8 md:p-4">
           <div className="w-full sm:max-w-[420px] md:max-w-[450px] h-[500px] bg-black/75 p-4 flex flex-col justify-center items-center gap-2">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-100">
-              Welcome back!
+              Welcome back
             </h1>
 
             <form className="w-full flex flex-col py-4">
