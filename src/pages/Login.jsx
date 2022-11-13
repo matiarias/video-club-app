@@ -12,7 +12,7 @@ const Login = () => {
           alt="netflix-background-image"
         />
 
-        <div className="absolute top-0 left-0 h-full w-full bg-gray-900/60"></div>
+        <div className="absolute top-0 left-0 h-full w-full bg-gray-900/75"></div>
         <div className="absolute top-0 left-0 h-full w-full flex flex-col justify-center items-center px-8 md:p-4">
           <div className="w-full sm:max-w-[420px] md:max-w-[450px] h-[500px] bg-black/75 p-4 flex flex-col justify-center items-center gap-2">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-100">
