@@ -1,7 +1,29 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import netflixBg from "../assets/netflix-login-signup-bg.jpg";
+import { UserAuth } from "../context/AuthContext";
 
 const Login = () => {
+  const { user, logIn } = UserAuth();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorLogIn, setErrorLogIn] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmitLogIn = async (e) => {
+    e.preventDefault();
+
+    try {
+      await logIn(email, password);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      setErrorLogIn(error.message);
+    }
+  };
+
   return (
     <div className="h-screen w-screen">
       <div className="relative h-full w-full">
@@ -18,18 +40,33 @@ const Login = () => {
               Welcome back
             </h1>
 
-            <form className="w-full flex flex-col py-4">
+            {errorLogIn && (
+              <div className="py-2 px-4 bg-red-900">
+                <p className="text-gray-200">Email or Password incorrect</p>
+              </div>
+            )}
+
+            <form
+              onSubmit={handleSubmitLogIn}
+              className="w-full flex flex-col py-4"
+            >
               <input
-                className="p-3 my-2 bg-gray-500 focus:outline-0 placeholder:text-gray-200"
+                className="p-3 my-2 bg-gray-500 focus:outline-0 text-gray-200 placeholder:text-gray-200"
                 type="email"
                 placeholder="Email"
                 autoComplete="email"
+                maxLength="50"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                className="p-3 my-2 bg-gray-500 focus:outline-0 placeholder:text-gray-200"
+                className="p-3 my-2 bg-gray-500 focus:outline-0 text-gray-200 placeholder:text-gray-200"
                 type="password"
                 placeholder="Password"
                 autoComplete="current-password"
+                maxLength="50"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <button className="bg-indigo-800/70 hover:bg-blue-900 px-5 py-3 my-6 text-white/90 hover:text-white font-semibold">
                 Log in

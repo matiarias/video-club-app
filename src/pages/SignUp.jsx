@@ -41,18 +41,20 @@ const SignUp = () => {
 
             <form onSubmit={handleSubmit} className="w-full flex flex-col py-4">
               <input
-                className="p-3 my-2 bg-gray-500 focus:outline-0 placeholder:text-gray-200"
+                className="p-3 my-2 bg-gray-500 focus:outline-0 text-gray-200 placeholder:text-gray-200"
                 type="email"
                 placeholder="Email"
                 autoComplete="email"
+                maxLength="50"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                className="p-3 my-2 bg-gray-500 focus:outline-0 placeholder:text-gray-200"
+                className="p-3 my-2 bg-gray-500 focus:outline-0 text-gray-200 placeholder:text-gray-200"
                 type="password"
                 placeholder="Password"
                 autoComplete="current-password"
+                maxLength="50"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
