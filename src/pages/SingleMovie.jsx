@@ -18,7 +18,7 @@ const SingleMovie = () => {
           import.meta.env.VITE_TMDB_API_KEY
         }&language=en-US`
       );
-      console.log(response.data);
+      // console.log(response.data);
       setOneMovie(response.data);
     } catch (error) {
       console.log(error);
@@ -38,7 +38,7 @@ const SingleMovie = () => {
           import.meta.env.VITE_TMDB_API_KEY
         }&language=en-US`
       );
-      console.log(response.data.results);
+      // console.log(response.data.results);
       setVideos(response.data.results);
     } catch (error) {
       console.log(error);
@@ -72,20 +72,28 @@ const SingleMovie = () => {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4">
-          <span className="text-gray-400 font-medium text-base md:text-lg">
-            {oneMovie?.release_date}
-          </span>
+        <span className="text-white font-medium text-base md:text-lg">
+          {oneMovie?.release_date}
+        </span>
 
+        <div className="flex justify-center items-center gap-4 mt-4">
           {oneMovie?.genres?.map((item) => (
             <span
-              className="text-black font-bold py-2 px-6 md:px-8 bg-yellow-500 rounded-2xl"
+              className="text-black font-bold py-2 px-4 sm:px-6 md:px-8 bg-yellow-500 rounded-2xl"
               key={item?.id}
             >
               {item?.name}
             </span>
           ))}
         </div>
+
+        <a
+          className="py-2 w-full sm:w-32 text-center mt-8 md:mt-6 bg-gradient-to-t to-red-900 from-red-500 text-white rounded-lg"
+          href={`https://www.youtube.com/watch?v=${videos[0]?.key}`}
+          target="_blank"
+        >
+          Trailer
+        </a>
       </div>
     </div>
   );
