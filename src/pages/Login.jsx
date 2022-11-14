@@ -68,7 +68,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button className="bg-indigo-800/70 hover:bg-blue-900 px-5 py-3 my-6 text-white/90 hover:text-white font-semibold">
+              <button className="bg-indigo-800/70 hover:bg-indigo-600 px-5 py-3 my-6 text-white/90 hover:text-white font-semibold">
                 Log in
               </button>
             </form>

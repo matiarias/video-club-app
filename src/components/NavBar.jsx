@@ -26,7 +26,7 @@ const NavBar = () => {
 
       {user?.email ? (
         <div>
-          <span className="text-gray-200 font-bold pr-4 mr-4">
+          <span className="text-gray-100 font-bold pr-4 mr-4">
             {user?.email}
           </span>
 
