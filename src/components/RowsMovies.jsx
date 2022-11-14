@@ -12,7 +12,7 @@ const RowsMovies = ({ title, fetchUrl, rowId }) => {
     });
   }, [fetchUrl]);
 
-  //   console.log(movies);
+  // console.log(movies);
 
   const slideLeft = () => {
     let slider = document.querySelector("#slider" + rowId);
@@ -25,7 +25,7 @@ const RowsMovies = ({ title, fetchUrl, rowId }) => {
   };
 
   return (
-    <div className="py-4">
+    <div className="py-4 px-2">
       <h3 className="text-white font-bold text-xl md:text-2xl p-4">{title}</h3>
       <div className="relative flex items-center group">
         <MdChevronLeft
@@ -45,8 +45,8 @@ const RowsMovies = ({ title, fetchUrl, rowId }) => {
           id={"slider" + rowId}
           className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
         >
-          {movies?.map((item, index) => (
-            <Movie item={item} key={index} />
+          {movies?.map((item) => (
+            <Movie item={item} key={item.id} />
           ))}
         </div>
 

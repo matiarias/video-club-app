@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
+import SingleMovie from "./pages/SingleMovie";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/movie/:id" element={<SingleMovie />} />
         </Routes>
       </AuthContextProvider>
     </>
