@@ -7,6 +7,8 @@ const SingleMovie = () => {
 
   const [videos, setVideos] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+
   const params = useParams();
 
   // ------------------------------- Fetch Movie with id ------------------------------------
@@ -20,6 +22,7 @@ const SingleMovie = () => {
       );
       // console.log(response.data);
       setOneMovie(response.data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -52,50 +55,58 @@ const SingleMovie = () => {
   // ----------------------------------------------------------------------------------------
 
   return (
-    <div className="relative h-screen w-screen">
-      <img
-        className="h-full w-full object-cover object-center"
-        src={`https://image.tmdb.org/t/p/original/${oneMovie?.backdrop_path}`}
-        alt={oneMovie?.title}
-      />
-
-      <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-r to-black/60 from-black/80"></div>
-
-      <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-start gap-2 p-4 md:p-8">
-        <h1 className="text-gray-100 font-bold text-3xl md:text-4xl lg:text-5xl">
-          {oneMovie?.title}
-        </h1>
-
-        <div className="w-full xl:max-w-[800px] mt-2">
-          <p className="text-gray-300 font-normal text-base md:text-lg lg:text-xl tracking-wide">
-            {oneMovie?.overview}
-          </p>
+    <>
+      {loading ? (
+        <div className="h-screen w-screen flex justify-center items-center p-8">
+          <h3 className="text-white text-3xl">loading...</h3>
         </div>
+      ) : (
+        <div className="relative h-screen w-screen">
+          <img
+            className="h-full w-full object-cover object-center"
+            src={`https://image.tmdb.org/t/p/original/${oneMovie?.backdrop_path}`}
+            alt={oneMovie?.title}
+          />
 
-        <span className="text-white font-medium text-base md:text-lg">
-          {oneMovie?.release_date}
-        </span>
+          <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-r to-black/60 from-black/80"></div>
 
-        <div className="flex justify-center items-center gap-4 mt-4">
-          {oneMovie?.genres?.map((item) => (
-            <span
-              className="text-black font-bold py-2 px-4 sm:px-6 md:px-8 bg-yellow-500 rounded-2xl"
-              key={item?.id}
-            >
-              {item?.name}
+          <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-start gap-2 p-4 md:p-8">
+            <h1 className="text-gray-100 font-bold text-3xl md:text-4xl lg:text-5xl">
+              {oneMovie?.title}
+            </h1>
+
+            <div className="w-full xl:max-w-[800px] mt-2">
+              <p className="text-gray-300 font-normal text-base md:text-lg lg:text-xl tracking-wide">
+                {oneMovie?.overview}
+              </p>
+            </div>
+
+            <span className="text-white font-medium text-base md:text-lg">
+              {oneMovie?.release_date}
             </span>
-          ))}
-        </div>
 
-        <a
-          className="py-2 w-full sm:w-32 text-center mt-8 md:mt-6 bg-gradient-to-t to-red-900 from-red-500 text-white rounded-lg"
-          href={`https://www.youtube.com/watch?v=${videos[0]?.key}`}
-          target="_blank"
-        >
-          Trailer
-        </a>
-      </div>
-    </div>
+            <div className="flex justify-center items-center gap-4 mt-4">
+              {oneMovie?.genres?.map((item) => (
+                <span
+                  className="text-black font-bold py-2 px-4 sm:px-6 md:px-8 bg-yellow-500 rounded-2xl"
+                  key={item?.id}
+                >
+                  {item?.name}
+                </span>
+              ))}
+            </div>
+
+            <a
+              className="py-2 w-full sm:w-32 text-center mt-8 md:mt-6 bg-gradient-to-t to-red-900 from-red-500 text-white rounded-lg"
+              href={`https://www.youtube.com/watch?v=${videos[0]?.key}`}
+              target="_blank"
+            >
+              Trailer
+            </a>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
