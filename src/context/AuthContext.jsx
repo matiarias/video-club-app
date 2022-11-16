@@ -13,17 +13,25 @@ const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
+  // ---------------------- create user with firebase auth ------------------------
+
   const signUp = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
+  // ---------------------- login with firebase auth ------------------------
 
   const logIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  // ---------------------- logout with firebase auth ------------------------
+
   const logOut = () => {
     return signOut(auth);
   };
+
+  // ------------------------ onAuth state changed with firebase ----------------------------
 
   useEffect(() => {
     const unsuscribe = onAuthStateChanged(auth, (currentUser) => {
