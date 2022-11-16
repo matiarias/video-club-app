@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Main from "../components/Main";
 import RowsMovies from "../components/RowsMovies";
 import requestsApi from "../helpers/requests";
@@ -41,6 +42,8 @@ const Home = () => {
         title={"Anime"}
         fetchUrl={requestsApi.requestAnime}
       />
+
+      <Footer />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const SingleMovie = () => {
   const [oneMovie, setOneMovie] = useState([]);
@@ -104,6 +105,8 @@ const SingleMovie = () => {
               Trailer
             </a>
           </div>
+
+          <Footer />
         </div>
       )}
     </>

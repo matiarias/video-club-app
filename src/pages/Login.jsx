@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import netflixBg from "../assets/netflix-login-signup-bg.jpg";
+import Footer from "../components/Footer";
 import { UserAuth } from "../context/AuthContext";
 
 const Login = () => {
@@ -82,6 +83,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
