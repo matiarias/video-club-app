@@ -37,19 +37,29 @@ const NavBar = () => {
       </Link>
 
       {user?.email ? (
-        <div className="hidden md:block">
-          <span className="text-gray-100 font-bold pr-4 mr-4">
-            {user?.email}
-          </span>
+        // ---------------- Menu with a user auth ----------------------
 
-          <button
-            onClick={handleLogOut}
-            className="bg-indigo-600 text-white px-6 py-2 rounded-md mr-2"
-          >
-            Log Out
-          </button>
+        <div className="hidden md:flex md:flex-col md:justify-center md:items-center md:gap-4">
+          <span className="text-white font-bold">{user?.email}</span>
+
+          <div className="flex justify-center items-center gap-4">
+            <Link to="/account">
+              <button className="bg-stone-800/80 text-white text-lg font-medium py-2 px-6 rounded-md">
+                Account
+              </button>
+            </Link>
+
+            <button
+              onClick={handleLogOut}
+              className="bg-indigo-600 text-white text-lg font-medium px-6 py-2 rounded-md mr-2"
+            >
+              Log Out
+            </button>
+          </div>
         </div>
       ) : (
+        // ---------------------- menu without a user auth --------------------
+
         <div className="hidden md:block">
           <Link to="/login">
             <button className="text-white text-xl font-medium pr-6 mr-4">
@@ -82,12 +92,18 @@ const NavBar = () => {
           className={
             !nav
               ? "hidden"
-              : "min-h-screen w-full bg-gradient-to-b from-black/90 to-black absolute top-0 left-0 flex flex-col justify-center items-center gap-8"
+              : "min-h-screen w-full bg-gradient-to-b from-black/90 to-black absolute top-0 left-0 flex flex-col justify-center items-center gap-8 px-4"
           }
         >
-          <span className="text-gray-100 text-2xl font-bold">
+          <span className="text-gray-100 text-base sm:text-lg font-bold">
             {user?.email}
           </span>
+
+          <Link to="/account">
+            <button className="bg-stone-800/80 text-white text-lg font-medium py-2 px-6 rounded-md">
+              Account
+            </button>
+          </Link>
 
           <button
             onClick={handleLogOut}
