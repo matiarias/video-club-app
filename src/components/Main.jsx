@@ -30,7 +30,7 @@ const Main = () => {
       <div className="relative w-full h-full">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black"></div>
         <img
-          className="w-full h-full object-cover object-right md:object-center"
+          className="w-full h-full object-cover object-center"
           src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
           alt={movie?.title}
         />
@@ -39,7 +39,7 @@ const Main = () => {
           <h2 className="text-3xl md:text-5xl font-bold">{movie?.title}</h2>
 
           <Link to={`/movie/${movie?.id}`}>
-            <div className="flex justify-center items-center gap-2 bg-gradient-to-r from-gray-400 to-gray-200 border-2 border-gray-500 rounded-md w-full py-2 sm:w-28 lg:w-32 mt-4 cursor-pointer">
+            <div className="flex justify-center items-center gap-2 bg-gradient-to-r from-gray-400 to-gray-200 border-2 border-gray-500 rounded-md w-40 lg:w-36 py-2 mt-4">
               <FaPlay className="text-black" />
               <span className="text-black font-bold">Play</span>
             </div>

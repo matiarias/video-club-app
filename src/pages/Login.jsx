@@ -42,7 +42,7 @@ const Login = () => {
 
             {errorLogIn && (
               <div className="py-2 px-4 bg-red-900">
-                <p className="text-gray-200">Email or Password incorrect</p>
+                <p className="text-gray-200">{errorLogIn}</p>
               </div>
             )}
 
