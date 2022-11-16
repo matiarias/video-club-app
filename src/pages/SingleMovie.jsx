@@ -62,7 +62,7 @@ const SingleMovie = () => {
           <h3 className="text-white text-3xl">loading...</h3>
         </div>
       ) : (
-        <div className="relative h-screen w-screen">
+        <div className="relative h-screen w-screen overflow-x-hidden">
           <img
             className="h-full w-full object-cover object-center"
             src={`https://image.tmdb.org/t/p/original/${oneMovie?.backdrop_path}`}

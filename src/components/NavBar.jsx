@@ -44,7 +44,7 @@ const NavBar = () => {
 
           <button
             onClick={handleLogOut}
-            className="bg-indigo-600 text-white px-6 py-2 rounded-md"
+            className="bg-indigo-600 text-white px-6 py-2 rounded-md mr-2"
           >
             Log Out
           </button>
@@ -52,10 +52,13 @@ const NavBar = () => {
       ) : (
         <div className="hidden md:block">
           <Link to="/login">
-            <button className="text-white pr-4 mr-4">Login</button>
+            <button className="text-white text-xl font-medium pr-6 mr-4">
+              Login
+            </button>
           </Link>
+
           <Link to="/signup">
-            <button className="bg-indigo-600 text-white px-6 py-2 rounded-md">
+            <button className="bg-indigo-600 text-white text-xl font-medium px-6 py-2 mr-2 rounded-md">
               Sign Up
             </button>
           </Link>

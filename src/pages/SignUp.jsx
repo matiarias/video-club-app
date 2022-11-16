@@ -25,7 +25,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-screen overflow-x-hidden">
       <div className="relative h-full w-full">
         <img
           className="h-full w-full object-cover"
