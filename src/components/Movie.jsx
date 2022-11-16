@@ -8,7 +8,7 @@ const Movie = ({ item }) => {
   return (
     <>
       <Link to={`/movie/${item?.id}`}>
-        <div className="relative w-[200px] md:w-[250px] lg:w-[300px] inline-block cursor-pointer p-2 hover:scale-[1.05] transition ease-in-out delay-100">
+        <div className="relative w-[270px] sm:w-[280px] lg:w-[300px] inline-block cursor-pointer p-2 hover:scale-[1.05] transition ease-in-out delay-100">
           <img
             className="w-full h-auto object-cover block"
             src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
