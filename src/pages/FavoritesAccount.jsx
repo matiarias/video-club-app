@@ -1,7 +1,7 @@
 const FavoritesAccount = () => {
   return (
-    <div>
-      <h1 className="text-white text-3xl">Account</h1>
+    <div className="h-screen w-screen">
+      <h1 className="text-white text-3xl">Your favourites Movies</h1>
     </div>
   );
 };
