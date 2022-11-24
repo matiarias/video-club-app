@@ -100,7 +100,10 @@ const NavBar = () => {
           </span>
 
           <Link to="/account">
-            <button className="bg-stone-800/80 text-white text-lg font-medium py-2 px-6 rounded-md">
+            <button
+              onClick={handleClickNav}
+              className="bg-stone-800/80 text-white text-lg font-medium py-2 px-6 rounded-md"
+            >
               Account
             </button>
           </Link>
@@ -121,12 +124,18 @@ const NavBar = () => {
           }
         >
           <Link to="/login">
-            <button className="text-white bg-yellow-600 px-8 py-3 rounded-md font-bold">
+            <button
+              onClick={handleClickNav}
+              className="text-white bg-yellow-600 px-8 py-3 rounded-md font-bold"
+            >
               Login
             </button>
           </Link>
           <Link to="/signup">
-            <button className="bg-indigo-600 text-white px-8 py-3 rounded-md font-bold">
+            <button
+              onClick={handleClickNav}
+              className="bg-indigo-600 text-white px-8 py-3 rounded-md font-bold"
+            >
               Sign Up
             </button>
           </Link>
