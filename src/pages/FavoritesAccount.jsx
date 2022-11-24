@@ -7,12 +7,14 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const FavoritesAccount = () => {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { user } = UserAuth();
 
   useEffect(() => {
     onSnapshot(doc(db, "users", `${user?.email}`), (doc) => {
       setMovies(doc.data()?.savedShows);
+      setIsLoading(false);
     });
   }, [user?.email]);
 
@@ -44,31 +46,37 @@ const FavoritesAccount = () => {
         </div>
       </div>
 
-      <div className="max-w-screen-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-y-12 lg:gap-x-8 md:gap-4 py-8 px-12 md:px-4 lg:px-8">
-        {movies?.map((item) => (
-          <div
-            key={item?.id}
-            className="relative w-full sm:w-[270px] md:w-[290px] lg:w-[280px] block cursor-pointer hover:scale-[1.03] transition ease-in-out delay-100 mx-auto"
-          >
-            <img
-              className="w-full h-auto object-cover block"
-              src={`https://image.tmdb.org/t/p/w500/${item?.img}`}
-              alt={item?.title}
-            />
-
-            <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 flex justify-center items-center px-2 text-center hover:translate-y-1">
-              <p className="text-white whitespace-normal font-bold text-xs md:text-sm ">
-                {item?.title}
-              </p>
-
-              <AiOutlineClose
-                onClick={() => deleteMovie(item.id)}
-                className="absolute top-1 right-2 text-indigo-200 text-3xl"
+      {isLoading ? (
+        <div className="absolute top-0 left-0 h-full w-full flex flex-col justify-center items-center">
+          <h3 className="text-white text-3xl md:text-4xl">Loading...</h3>
+        </div>
+      ) : (
+        <div className="max-w-screen-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-y-12 lg:gap-x-8 md:gap-4 py-8 px-12 md:px-4 lg:px-8">
+          {movies?.map((item) => (
+            <div
+              key={item?.id}
+              className="relative w-full sm:w-[270px] md:w-[290px] lg:w-[280px] block cursor-pointer hover:scale-[1.03] transition ease-in-out delay-100 mx-auto"
+            >
+              <img
+                className="w-full h-auto object-cover block"
+                src={`https://image.tmdb.org/t/p/w500/${item?.img}`}
+                alt={item?.title}
               />
+
+              <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 flex justify-center items-center px-2 text-center hover:translate-y-1">
+                <p className="text-white whitespace-normal font-bold text-xs md:text-sm ">
+                  {item?.title}
+                </p>
+
+                <AiOutlineClose
+                  onClick={() => deleteMovie(item.id)}
+                  className="absolute top-1 right-2 text-indigo-200 text-3xl"
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
