@@ -53,7 +53,7 @@ const Movie = ({ item }) => {
             alt={item?.title}
           />
 
-          <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 flex justify-center items-center px-2 text-center hover:translate-y-1">
+          <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 flex justify-center items-center px-2 text-center">
             <p className="text-white whitespace-normal font-bold text-xs md:text-sm ">
               {item?.title}
             </p>
