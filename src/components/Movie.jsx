@@ -5,6 +5,9 @@ import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase/firebase";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 
+import { toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Movie = ({ item }) => {
   const [like, setLike] = useState(false);
 
@@ -26,7 +29,17 @@ const Movie = ({ item }) => {
         }),
       });
     } else {
-      alert("Please log in to save a movie");
+      toast.info("Please Log In", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Zoom,
+      });
     }
   };
 

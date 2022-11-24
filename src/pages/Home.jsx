@@ -3,6 +3,8 @@ import Main from "../components/Main";
 import RowsMovies from "../components/RowsMovies";
 import requestsApi from "../helpers/requests";
 
+import { ToastContainer } from "react-toastify";
+
 const Home = () => {
   return (
     <>
@@ -42,6 +44,8 @@ const Home = () => {
         title={"Anime"}
         fetchUrl={requestsApi.requestAnime}
       />
+
+      <ToastContainer />
 
       <Footer />
     </>
