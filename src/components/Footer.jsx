@@ -4,7 +4,7 @@ import { FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="w-full h-[100px] sm:h-[90px] md:h-[80px] bg-gradient-to-r from-[#020225] to-black/90 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 px-2">
+    <div className="w-full h-[100px] sm:h-[90px] md:h-[80px] bg-gradient-to-r from-[#090957] to-black/70 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 px-2">
       <div className="flex justify-center items-center gap-2">
         <h4 className="text-indigo-200 text-base sm:text-lg font-bold">
           Created by Matias Arias

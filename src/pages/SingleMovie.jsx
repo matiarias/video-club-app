@@ -72,24 +72,24 @@ const SingleMovie = () => {
           <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-r to-black/60 from-black/80"></div>
 
           <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-start gap-2 p-4 md:p-8">
-            <h1 className="text-gray-100 font-bold text-3xl md:text-4xl lg:text-5xl">
+            <h1 className="text-gray-100 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
               {oneMovie?.title}
             </h1>
 
             <div className="w-full xl:max-w-[800px] mt-2">
-              <p className="text-gray-300 font-normal text-base md:text-lg lg:text-xl tracking-wide">
+              <p className="text-gray-300 font-normal text-sm sm:text-base md:text-lg lg:text-xl tracking-wide">
                 {oneMovie?.overview}
               </p>
             </div>
 
-            <span className="text-white font-medium text-base md:text-lg">
+            <span className="text-white font-medium text-base md:text-lg mt-2">
               {oneMovie?.release_date}
             </span>
 
-            <div className="flex justify-center items-center gap-4 mt-4">
+            <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-4 mt-4">
               {oneMovie?.genres?.map((item) => (
                 <span
-                  className="text-black font-bold py-2 px-4 sm:px-6 md:px-8 bg-yellow-500 rounded-2xl"
+                  className="text-black text-sm sm:text-base font-bold py-2 px-2 sm:px-6 bg-yellow-500 rounded-2xl"
                   key={item?.id}
                 >
                   {item?.name}
