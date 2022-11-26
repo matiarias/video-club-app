@@ -22,20 +22,19 @@ Deploy Site: [https://video-club-app.vercel.app/](https://video-club-app.vercel.
 
 ## API
 
-For the data requests i used
-
 - [https://www.themoviedb.org/documentation/api](https://www.themoviedb.org/documentation/api)
 
 ## Built with
 
+- Vite
 - React
 - Javascript
 - Tailwind
 - Firebase Auth
-- Firestore db
-- react-router-dom-v6
-- react icons
-- react toastify
+- Firestore Database
+- React router dom v6
+- React icons
+- React toastify
 - React Hooks
 
 ## How to use
